@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="ILIAS Rest Plugin : An ILIAS Plugin for creating and using REST APIs">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>ILIAS Rest Plugin</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/hrz-unimr/Ilias.RESTPlugin">View on GitHub</a>
+
+          <h1 id="project_title">ILIAS Rest Plugin</h1>
+          <h2 id="project_tagline">An ILIAS Plugin for creating and using REST APIs</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/hrz-unimr/Ilias.RESTPlugin/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/hrz-unimr/Ilias.RESTPlugin/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a id="ilias-rest-plugin" class="anchor" href="#ilias-rest-plugin" aria-hidden="true"><span class="octicon octicon-link"></span></a>ILIAS REST Plugin</h1>
+
+<p>This is an extensible REST interface that allows developers to create RESTful APIs on top of the <a href="http://www.ilias.de">ILIAS LMS</a>.</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/7113474/4717608/c75ea6c4-5916-11e4-9337-a4cdc869224a.PNG" alt="Alt text" title="ILIAS REST Plugin"></p>
+
+<h4>
+<a id="features" class="anchor" href="#features" aria-hidden="true"><span class="octicon octicon-link"></span></a>Features:</h4>
+
+<ul>
+<li>CRUD (Create-Read-Update-Delete) principle for resources</li>
+<li>Permission management for resources depending on REST clients</li>
+<li>Full OAuth 2.0 support (see <a href="http://tools.ietf.org/html/rfc6749">RFC6749</a>) including the grant types:
+
+<ul>
+<li>Authorization Code</li>
+<li>Implicit</li>
+<li>Resource Owner Password Credentials</li>
+<li>Client Credentials</li>
+</ul>
+</li>
+<li>Easy integration for new REST endpoints</li>
+<li>API discovery</li>
+<li>Based on the PHP SLIM Framework</li>
+</ul>
+
+<h2>
+<a id="examples" class="anchor" href="#examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Examples</h2>
+
+<p>Example 1
+<strong>Retrieve available routes</strong></p>
+
+<pre><code>curl -X GET http://localhost/restplugin.php/routes
+</code></pre>
+
+<p>Example 2
+<strong>Retrieve an OAuth 2.0 Access Token</strong></p>
+
+<pre><code>curl -X POST http://localhost/restplugin.php/v1/oauth2/token -d "grant_type=password&amp;username=root&amp;password=homer"| python -m json.tool
+
+
+curl -H "Authorization: Bearer &lt;ACCESS_TOKEN&gt;" http://...
+</code></pre>
+
+<h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>Current release: v.0.7.2-alpha</p>
+
+<ul>
+<li>mkdir -p ILIAS_DIR/Customizing/global/plugins/Services/UIComponent/UserInterfaceHook/</li>
+<li>cd ILIAS_DIR/Customizing/global/plugins/Services/UIComponent/UserInterfaceHook/</li>
+<li>wget <a href="https://github.com/hrz-unimr/Ilias.RESTPlugin/archive/v.0.7.2-alpha.zip">https://github.com/hrz-unimr/Ilias.RESTPlugin/archive/v.0.7.2-alpha.zip</a>
+</li>
+<li>unzip v.0.7.2.zip</li>
+<li>mv RESTPlugin-v.0.7.2-alpha Rest</li>
+<li>Copy Rest/gateways/restplugin.php to /</li>
+<li>Plugin directories must be readable by apache process (www-data)</li>
+<li>Create www-data writable logfile /var/log/restplugin.log</li>
+<li>Activate Plugin in Administration &gt; Plugins</li>
+</ul>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">ILIAS Rest Plugin maintained by <a href="https://github.com/hrz-unimr">hrz-unimr</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
